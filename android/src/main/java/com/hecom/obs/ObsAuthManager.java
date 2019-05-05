@@ -43,8 +43,8 @@ public class ObsAuthManager {
                                            ReadableMap configuration) {
         // init conf
         ObsConfiguration conf = ConfigUtils.initAuthConfig(configuration);
-
-        mObs = new ObsClient(accessKeyId, accessKeySecret, endPoint, conf);
+        conf.setEndPoint(endPoint);
+        mObs = new ObsClient(accessKeyId, accessKeySecret, conf);
         Log.d("AliyunOSS", "OSS initWithKey ok!");
         mAuthListener.onAuthFinished(mObs);
     }

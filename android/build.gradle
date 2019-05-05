@@ -1,12 +1,11 @@
-
 buildscript {
     repositories {
-         maven {
-             url 'http://mirrors.huaweicloud.com/repository/maven/huaweicloudsdk/'
-         }
-         maven {
-             url 'http://mirrors.huaweicloud.com/repository/maven/'
-         }
+        maven {
+            url 'http://mirrors.huaweicloud.com/repository/maven/huaweicloudsdk/'
+        }
+        maven {
+            url 'http://mirrors.huaweicloud.com/repository/maven/'
+        }
         jcenter()
         google()
     }
@@ -34,12 +33,12 @@ android {
 }
 
 repositories {
-maven {
-         url 'http://mirrors.huaweicloud.com/repository/maven/huaweicloudsdk/'
-     }
-     maven {
-         url 'http://mirrors.huaweicloud.com/repository/maven/'
-     }
+    maven {
+        url 'http://mirrors.huaweicloud.com/repository/maven/huaweicloudsdk/'
+    }
+    maven {
+        url 'http://mirrors.huaweicloud.com/repository/maven/'
+    }
     mavenCentral()
     google()
 }

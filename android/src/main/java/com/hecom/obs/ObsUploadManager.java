@@ -13,6 +13,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.obs.services.ObsClient;
 import com.obs.services.exception.ObsException;
+import com.obs.services.model.AccessControlList;
 import com.obs.services.model.ObjectMetadata;
 import com.obs.services.model.ProgressListener;
 import com.obs.services.model.ProgressStatus;
@@ -66,6 +67,7 @@ public class ObsUploadManager {
         ObjectMetadata metadata = new ObjectMetadata();
         metadata.setContentType("application/octet-stream");
         put.setMetadata(metadata);
+        put.setAcl(AccessControlList.REST_CANNED_PUBLIC_READ);
 
         // set callback
         put.setProgressListener(new ProgressListener() {
