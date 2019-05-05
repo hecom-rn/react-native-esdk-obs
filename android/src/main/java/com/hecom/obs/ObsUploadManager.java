@@ -98,46 +98,4 @@ public class ObsUploadManager {
         }
         Log.d("AliyunOSS", "OSS uploadObjectAsync ok!");
     }
-
-    /**
-     * asyncAppendObject
-     */
-    public void asyncAppendObject(final ReactContext context, String bucketName, String objectKey,
-                                  String uploadFilePath, ReadableMap options, final Promise promise) {
-
-    }
-
-    /**
-     * asyncResumableUpload
-     */
-    public void asyncResumableUpload(final ReactContext context, String bucketName, String objectKey,
-                                     String uploadFilePath, ReadableMap options, final Promise promise) {
-
-    }
-
-    /**
-     * initMultipartUpload
-     */
-    public void initMultipartUpload(String bucketName, String objectKey, final Promise promise) {
-    }
-
-    /**
-     * multipartUpload
-     */
-    public void multipartUpload(final ReactContext context, String bucketName, String objectKey, String uploadId,
-                                String filepath, ReadableMap options, final Promise promise) {
-
-    }
-
-    /**
-     * abortMultipartUpload
-     */
-    public void abortMultipartUpload(String bucketName, String objectKey, String uploadId, final Promise promise) {
-    }
-
-    /**
-     * listParts
-     */
-    public void listParts(String bucketName, String objectKey, String uploadId, final Promise promise) {
-    }
 }
