@@ -1,25 +1,23 @@
 {
-  "name": "aliyun-oss-react-native",
-  "version": "1.0.0-alpha.7",
-  "description": "React Native SDK for aliyun object storage service",
+  "name": "react-native-esdk-obs",
+  "version": "0.0.1",
+  "description": "React Native SDK for huawei object storage service",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aliyun/aliyun-oss-react-native.git"
+    "url": "git+https://github.com/summer88123/react-native-esdk-obs.git"
   },
   "keywords": [
-    "oss",
+    "obs",
     "react-native",
-    "aliyun-sdk",
-    "aliyun-oss",
-    "aliyun-oss-react-native"
+    "react-native-esdk-obs"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aliyun/aliyun-oss-react-native/issues"
+    "url": "https://github.com/summer88123/react-native-esdk-obs/issues"
   },
-  "homepage": "https://github.com/aliyun/aliyun-oss-react-native.git#readme"
+  "homepage": "https://github.com/summer88123/react-native-esdk-obs.git#readme"
 }

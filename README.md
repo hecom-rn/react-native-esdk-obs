@@ -6,18 +6,10 @@
 
 ## 安装
 
-注意: react-native版本建议0.44.0及以上，建议使用fackebook官方[react-native-cli](https://www.npmjs.com/package/react-native-cli)或者[create-react-native-app](https://www.npmjs.com/package/create-react-native-app)脚手架进行react native项目构建。react-native-esdk-obs可通过npm或者yarn安装
-
-* npm
-
-```script
-npm install react-native-esdk-obs  --save
-```
-
 * yarn
 
 ```script
-yarn install react-native-esdk-obs --save
+yarn install https://github.com/summer88123/react-native-esdk-obs.git
 ```
 
 ### 手动安装
@@ -44,7 +36,7 @@ pod 'react-native-esdk-obs', :path => '../node_modules/react-native-esdk-obs'
 2. `build.gradle`
     ```gradle
     dependencies {
-        compile project(':react-native-esdk-obs')
+        implementation project(':react-native-esdk-obs')
     }
     ```
 
@@ -67,11 +59,3 @@ pod 'react-native-esdk-obs', :path => '../node_modules/react-native-esdk-obs'
 ## License
 
 * MIT
-
-## 未来
-
-* 未来持续改进、优化代码文档、新增接口、修复Bug等
-
-## 文档
-
-* 后续完善
