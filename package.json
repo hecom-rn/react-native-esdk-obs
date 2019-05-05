@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/summer88123/react-native-esdk-obs.git"
+    "url": "git+https://github.com/hecom-rn/react-native-esdk-obs.git"
   },
   "keywords": [
     "obs",
@@ -17,7 +17,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/summer88123/react-native-esdk-obs/issues"
+    "url": "https://github.com/hecom-rn/react-native-esdk-obs/issues"
   },
-  "homepage": "https://github.com/summer88123/react-native-esdk-obs.git#readme"
+  "homepage": "https://github.com/hecom-rn/react-native-esdk-obs.git#readme"
 }

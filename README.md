@@ -9,7 +9,7 @@
 * yarn
 
 ```script
-yarn install https://github.com/summer88123/react-native-esdk-obs.git
+yarn install https://github.com/hecom-rn/react-native-esdk-obs.git
 ```
 
 ### 手动安装
