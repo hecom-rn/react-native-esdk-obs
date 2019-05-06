@@ -1,4 +1,4 @@
-#import "RNAliyunOSS.h"
+#import "RNOBS.h"
 
 @interface RNOBS (LOG)
 

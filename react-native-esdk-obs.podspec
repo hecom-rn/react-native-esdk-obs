@@ -1,19 +1,21 @@
 require 'json'
+
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
 Pod::Spec.new do |s|
   s.name          = package['name']
-  s.version       = package["version"]
+  s.version       = package['version']
   s.summary       = package['description']
-  s.author        = { 'albertluo' => 'luozhang002@126.com' }
+  s.author        = { 'Yudong Bai' => 'summer88123@163.com' }
   s.license       = package['license']
   s.homepage      = package['homepage']
-  s.source        = { :git => 'https://github.com/aliyun/aliyun-oss-react-native.git' }
-  s.platform      = :ios, '8.0'
-
+  s.source        = { :git => 'https://github.com/hecom-rn/react-native-esdk-obs.git' }
+  s.platform      = :ios, '9.0'
   s.source_files  = 'ios/*.{h,m}'
-
+  s.vendored_frameworks = 'ios/OBS/OBS.framework'
+  s.xcconfig      = {
+    'OTHER_LDFLAGS' => '-ObjC -force_load $(PODS_ROOT)/react-native-esdk-obs/ios/OBS/OBS.framework/OBS',
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+  }
   s.dependency 'React'
-  s.dependency 'AliyunOSSiOS'
-
 end

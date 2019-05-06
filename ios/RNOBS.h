@@ -1,21 +1,17 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
-#import <AliyunOSSiOS/OSSService.h>
+#import <OBS/OBS.h>
 
+@interface RNOBS : RCTEventEmitter <RCTBridgeModule>
 
-@interface RNAliyunOSS : RCTEventEmitter <RCTBridgeModule>
-
-@property OSSClient *client;
-@property OSSClientConfiguration *clientConfiguration;
+@property OBSClient *client;
+@property OBSServiceConfiguration *clientConfiguration;
 
 @property bool hasListeners;
 
--(NSString *)getDocumentDirectory;
--(NSString *)getTemporaryDirectory;
--(void) initConfiguration:(NSDictionary *)configuration;
--(void) beginUploadingWithFilepath:(NSString *)filepath resultBlock:(void (^) (NSData *))callback;
+- (NSString *)getDocumentDirectory;
+- (NSString *)getTemporaryDirectory;
 
 + (NSString*)generateTemporaryDirectoryFrom:(NSString*)sourcePath withData:(NSData*)data;
 
 @end
-
