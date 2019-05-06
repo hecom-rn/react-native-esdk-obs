@@ -9,7 +9,7 @@ RCT_EXPORT_METHOD(initWithPlainTextAccessKey:(NSString *)accessKey
                   secretKey:(NSString *)secretKey
                   endPoint:(NSString *)endPoint
                   configuration:(NSDictionary *)configuration) {
-    id<OBSServiceCredentialProvider> credential = [[OBSStaticCredentialProvider alloc] initWithAccessKey:accessKey secretKey:secretKey];
+    OBSStaticCredentialProvider *credential = [[OBSStaticCredentialProvider alloc] initWithAccessKey:accessKey secretKey:secretKey];
     [self initConfiguration:configuration
                    endPoint:endPoint
           creditialProvider:credential];
@@ -24,7 +24,10 @@ RCT_EXPORT_METHOD(initWithSecurityToken:(NSString *)securityToken
                   secretKey:(NSString *)secretKey
                   endPoint:(NSString *)endPoint
                   configuration:(NSDictionary *)configuration) {
-    id<OBSServiceCredentialProvider> credential = [[OBSSTSCredentialProvider alloc] initWithAccessKey:accessKey secretKey:secretKey stsToken:securityToken];
+    OBSStaticCredentialProvider *credential = [[OBSStaticCredentialProvider alloc] initWithAccessKey:accessKey secretKey:secretKey];
+    credential.securityToken = securityToken;
+    credential.isGetProtocol = NO;
+    credential.protocolType = OBSProtocolTypeOBS;
     [self initConfiguration:configuration
                    endPoint:endPoint
           creditialProvider:credential];

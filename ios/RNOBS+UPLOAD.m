@@ -8,7 +8,7 @@
 /**
  * Asynchronous uploading
  */
-RCT_REMAP_METHOD(asyncUpload,
+RCT_REMAP_METHOD(upload,
                  asyncUploadWithBucketName:(NSString *)bucketName
                  objectKey:(NSString *)objectKey
                  filepath:(NSString *)filepath
