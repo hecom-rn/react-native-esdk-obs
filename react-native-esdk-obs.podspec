@@ -12,9 +12,10 @@ Pod::Spec.new do |s|
   s.source        = { :git => 'https://github.com/hecom-rn/react-native-esdk-obs.git' }
   s.platform      = :ios, '9.0'
   s.source_files  = 'ios/*.{h,m}'
+  s.framework     = 'Photos', 'MobileCoreServices'
   s.vendored_frameworks = 'ios/OBS/OBS.framework'
   s.xcconfig      = {
-    'OTHER_LDFLAGS' => '-ObjC -force_load $(PODS_ROOT)/../../node_modules/react-native-esdk-obs/ios/OBS/OBS.framework/OBS',
+    'OTHER_LDFLAGS' => '-ObjC',
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
   }
   s.dependency 'React'

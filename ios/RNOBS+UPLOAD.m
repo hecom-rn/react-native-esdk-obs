@@ -50,7 +50,7 @@ RCT_REMAP_METHOD(upload,
 - (void)beginUploadingWithFilepath:(NSString *)filepath resultBlock:(void (^) (NSData *))callback {
     // read asset data from filepath
     if ([filepath hasPrefix:@"assets-library://"]) {
-        PHAsset *asset = [PHAsset fetchAssetsWithALAssetURLs:@[filepath] options:nil].firstObject;
+        PHAsset *asset = [PHAsset fetchAssetsWithALAssetURLs:@[[NSURL URLWithString:filepath]] options:nil].firstObject;
         [self convertToNSDataFromAsset:asset withHandler:callback];
     } else if ([filepath hasPrefix:@"localIdentifier://"]) {
         NSString *localIdentifier = [filepath stringByReplacingOccurrencesOfString:@"localIdentifier://" withString:@""];
