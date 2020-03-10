@@ -4,7 +4,8 @@
   "description": "React Native SDK for huawei object storage service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minor": "npm version minor -m 'Bump version %s';git push origin master --tags"
   },
   "repository": {
     "type": "git",
