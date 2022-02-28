@@ -24,6 +24,7 @@ RCT_REMAP_METHOD(upload,
             // Only send events if anyone is listening
             if (self.hasListeners) {
                 [self sendEventWithName:@"uploadProgress" body:@{
+                                                                 @"filePath": filepath,
                                                                  @"currentSize": [NSString stringWithFormat:@"%lld",totalBytesSent],
                                                                  @"totalSize": [NSString stringWithFormat:@"%lld",totalBytesExpectedToSend]}];
             }

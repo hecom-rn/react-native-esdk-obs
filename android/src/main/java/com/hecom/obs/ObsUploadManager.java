@@ -81,6 +81,7 @@ public class ObsUploadManager {
                 WritableMap onProgressValueData = Arguments.createMap();
                 onProgressValueData.putString("currentSize", str_currentSize);
                 onProgressValueData.putString("totalSize", str_totalSize);
+                onProgressValueData.putString("totalSize", str_totalSize);
                 context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                         .emit("uploadProgress", onProgressValueData);
             }
