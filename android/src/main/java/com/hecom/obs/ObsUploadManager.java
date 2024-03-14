@@ -67,7 +67,6 @@ public class ObsUploadManager {
         ObjectMetadata metadata = new ObjectMetadata();
         metadata.setContentType("application/octet-stream");
         put.setMetadata(metadata);
-        put.setAcl(AccessControlList.REST_CANNED_PUBLIC_READ);
 
         // set callback
         put.setProgressListener(new ProgressListener() {

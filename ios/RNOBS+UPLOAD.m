@@ -17,7 +17,6 @@ RCT_REMAP_METHOD(upload,
                  rejecter:(RCTPromiseRejectBlock)reject) {
     [self beginUploadingWithFilepath:filepath resultBlock:^(NSData *data) {
         OBSPutObjectWithDataRequest *put = [[OBSPutObjectWithDataRequest alloc] initWithBucketName:bucketName objectKey:objectKey uploadData:data];
-        put.objectACLPolicy = OBSACLPolicyPublicRead;
         // optional fields
         put.uploadProgressBlock = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
             NSLog(@"%lld, %lld, %lld", bytesSent, totalBytesSent, totalBytesExpectedToSend);
@@ -57,7 +56,7 @@ RCT_REMAP_METHOD(upload,
         NSString *localIdentifier = [filepath stringByReplacingOccurrencesOfString:@"localIdentifier://" withString:@""];
         PHAsset *asset = [PHAsset fetchAssetsWithLocalIdentifiers:@[localIdentifier] options:nil].firstObject;
         [self convertToNSDataFromAsset:asset withHandler:callback];
-        
+
     } else {
         filepath = [filepath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
         NSData *data = [NSData dataWithContentsOfFile:filepath];
@@ -84,13 +83,13 @@ RCT_REMAP_METHOD(upload,
                     CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)imageData, NULL);
                     NSDictionary *imageInfo = (__bridge NSDictionary*)CGImageSourceCopyPropertiesAtIndex(source, 0, NULL);
                     NSDictionary *metadata = [imageInfo copy];
-                    
+
                     NSMutableData *imageDataJPEG = [NSMutableData data];
-                    
+
                     CGImageDestinationRef destination = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)imageDataJPEG, kUTTypeJPEG, 1, NULL);
                     CGImageDestinationAddImageFromSource(destination, source, 0, (__bridge CFDictionaryRef)metadata);
                     CGImageDestinationFinalize(destination);
-                    
+
                     handler([NSData dataWithData:imageDataJPEG]);
                 }
             }];
@@ -100,15 +99,15 @@ RCT_REMAP_METHOD(upload,
             PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc] init];
             options.networkAccessAllowed = YES;
             [imageManager requestExportSessionForVideo:asset options:options exportPreset:AVAssetExportPresetHighestQuality resultHandler:^(AVAssetExportSession * _Nullable exportSession, NSDictionary * _Nullable info) {
-                
+
                 //generate a temporary directory for caching the video (MP4 Only)
                 NSString *filePath = [[self getTemporaryDirectory] stringByAppendingString:[[NSUUID UUID] UUIDString]];
                 filePath = [filePath stringByAppendingString:@".mp4"];
-                
+
                 exportSession.shouldOptimizeForNetworkUse = YES;
                 exportSession.outputFileType = AVFileTypeMPEG4;
                 exportSession.outputURL = [NSURL fileURLWithPath:filePath];
-                
+
                 [exportSession exportAsynchronouslyWithCompletionHandler:^{
                     handler([NSData dataWithContentsOfFile:filePath]);
                 }];
