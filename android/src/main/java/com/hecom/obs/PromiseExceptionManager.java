@@ -15,10 +15,10 @@ public class PromiseExceptionManager {
     public static void resolvePromiseException(ObsException exception,  final Promise promise) {
         if (exception != null) {
             exception.printStackTrace();
-            Log.e("ErrorCode", exception.getErrorCode());
-            Log.e("RequestId", exception.getErrorRequestId());
-            Log.e("HostId", exception.getErrorHostId());
-            Log.e("RawMessage", exception.getErrorMessage());
+            Log.e("ErrorCode", "ErrorCode = " + exception.getErrorCode());
+            Log.e("RequestId", "RequestId = " + exception.getErrorRequestId());
+            Log.e("HostId", "HostId = " + exception.getErrorHostId());
+            Log.e("RawMessage", "RawMessage = " + exception.getErrorMessage());
             promise.reject(exception);
         }
     }
