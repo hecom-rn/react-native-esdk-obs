@@ -39,6 +39,7 @@ public class ObsUploadManager {
      */
     public void upload(final ReactContext context, String bucketName, String ossFile, String sourceFile,
                        ReadableMap options, final Promise promise) {
+        String finalSourceFile = sourceFile;
         // Content to file:// start
         Uri selectedVideoUri = Uri.parse(sourceFile);
 
@@ -81,6 +82,7 @@ public class ObsUploadManager {
                 onProgressValueData.putString("currentSize", str_currentSize);
                 onProgressValueData.putString("totalSize", str_totalSize);
                 onProgressValueData.putString("totalSize", str_totalSize);
+                onProgressValueData.putString("filePath", finalSourceFile);
                 context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                         .emit("uploadProgress", onProgressValueData);
             }
