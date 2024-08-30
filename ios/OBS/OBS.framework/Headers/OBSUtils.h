@@ -15,6 +15,7 @@
 @class OBSBaseRequest;
 @class OBSBaseNetworkingRequest;
 @class OBSBaseConfiguration;
+@class OBSServiceNetworkingRequest;
 
 @interface OBSUtils : NSObject
 //+ (NSDictionary*)convertXMLStringToDict:(NSString*) xmlString error:(NSError**) error;
@@ -37,10 +38,15 @@
                                                    error:(NSError**) error;
 
 +(NSString*)generateQueryString:(NSDictionary*) queryParameters;
++(NSString*)V4PresignGenerateQueryString:(NSDictionary*) queryParameters;
 
 + (NSDateFormatter *)getDateFormatterRFC1123;
 + (NSDateFormatter *)getDateFormatterISO8601Format3;
 + (NSString *)getDateStringWithFormatString:(NSDate*) date format:(NSString*) dateFormat;
+
+// 新增CDN自定义域名处理函数
++ (NSString *)v2CDNCustomDomain:(OBSServiceNetworkingRequest*) request;
++ (void)v4CDNCustomDomain:(OBSServiceNetworkingRequest*) request;
 @end
 
 #endif  /* OBSUtils_h */

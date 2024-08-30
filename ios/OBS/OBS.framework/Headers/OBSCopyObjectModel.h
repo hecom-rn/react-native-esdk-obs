@@ -105,6 +105,11 @@
  被复制对象加密方式
  */
 @property (nonatomic, strong, nonnull) __kindof OBSAbstractEncryption *srcObjectEncryption;
+
+/**
+ 自定义元数据
+ */
+@property (nonatomic, strong, nullable) NSDictionary *metaDataDict;
 @end
 
 
@@ -190,6 +195,16 @@
  被复制对象加密方式
  */
 @property (nonatomic, strong, nonnull) __kindof OBSAbstractEncryption *srcObjectEncryption;
+
+/**
+ 自定义元数据
+ */
+@property (nonatomic, strong, nullable) NSDictionary *metaDataDict;
+
+/**
+ 自定义MIME类型
+ */
+@property (nonatomic, strong, nonnull) NSString *customContentType;
 
 /**
  初始化复制对象request

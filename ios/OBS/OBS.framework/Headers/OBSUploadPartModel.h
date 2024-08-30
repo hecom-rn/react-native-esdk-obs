@@ -93,6 +93,11 @@
  上传进度
  */
 @property (nonatomic, copy, nonnull) OBSNetworkingUploadProgressBlock uploadProgressBlock;
+
+/**
+ Content-MD5
+ */
+@property (nonatomic, strong, nonnull) NSString *contentMD5;
 @end
 
 
@@ -106,7 +111,7 @@
  */
 @property (nonatomic, strong, nonnull) NSData *uploadData;
 
-
+- (void) freeUploadData;
 /**
  初始化多段数据上传request
 
@@ -145,6 +150,11 @@
  多段文件上传request
  */
 @interface OBSUploadPartWithFileRequest: OBSAbstractUploadPartRequest
+/**
+ 上传数据
+ */
+@property (nonatomic, weak) __weak NSData *uploadAllData; 
+@property (nonatomic, weak) __weak NSFileHandle *fileHandle;
 
 /**
  文件路径
@@ -165,6 +175,11 @@
  是否后台上传
  */
 @property (nonatomic, assign) BOOL background;
+
+@property (nonatomic, strong) OBSUploadPartWithDataRequest * dataRequest;
+
+
+@property (nonatomic, strong) OBSBaseNetworkingRequest * dataRequest1;
 
 
 /**
