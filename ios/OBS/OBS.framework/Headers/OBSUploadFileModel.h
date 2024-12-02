@@ -1,14 +1,10 @@
-// Copyright 2019 Huawei Technologies Co.,Ltd.
-// Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-// this file except in compliance with the License.  You may obtain a copy of the
-// License at
 //
-// http://www.apache.org/licenses/LICENSE-2.0
+//  OBSUploadFileModel.h
+//  OBS
 //
-// Unless required by applicable law or agreed to in writing, software distributed
-// under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-// CONDITIONS OF ANY KIND, either express or implied.  See the License for the
-// specific language governing permissions and limitations under the License.
+//  Created by MaxZhang on 11/12/2017.
+//  Copyright © 2017 obs. All rights reserved.
+//
 
 #ifndef OBSUploadFileModel_h
 #define OBSUploadFileModel_h
@@ -83,6 +79,11 @@
 @property (nonatomic, assign) BOOL enableMD5Check;
 
 /**
+ 开启分段MD5校验
+ */
+@property (nonatomic, assign) BOOL enablePartMD5Check;
+
+/**
  设置断点续传模式下，记录上传进度的文件
  */
 @property (nonatomic, strong, nonnull) NSString *checkpointFilePath;
@@ -92,6 +93,11 @@
  */
 @property (nonatomic, strong, nonnull) NSNumber *partSize;
 
+/**
+ MIME类型
+ */
+@property (nonatomic, assign) OBSContentType contentType;
+
 @end
 
 
@@ -99,6 +105,17 @@
  断点续传request
  */
 @interface OBSUploadFileRequest: OBSBaseRequest<OBSUploadFileProtocol>
+
+/**
+ 上传数据
+ */
+@property (nonatomic, strong) NSData *uploadAllData; 
+
+@property (nonatomic, strong) NSFileHandle *fileHandle;
+/**
+ 上传路径，避免多次重新读取数据映射造成内存问题
+ */
+@property (nonatomic, strong) NSString *lastUploadFilePath;  
 
 /**
  桶名
@@ -164,6 +181,21 @@
  分段大小
  */
 @property (nonatomic, strong, nonnull) NSNumber *partSize;
+
+/**
+ MIME类型
+ */
+@property (nonatomic, assign) OBSContentType contentType;
+
+/**
+ 自定义MIME类型
+ */
+@property (nonatomic, strong, nonnull) NSString *customContentType;
+
+/**
+ 最终映射MIME类型
+ */
+@property (nonatomic, strong, nonnull) NSString *finalContentType;
 
 /**
  初始化断点续传request

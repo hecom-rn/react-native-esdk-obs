@@ -14,6 +14,7 @@
 #define OBSServiceBaseModel_h
 #import "OBSBaseModel.h"
 #import "OBSBaseNetworking.h"
+#import "OBSServiceConstDefinition.h"
 
 
 @class OBSBaseConfiguration;
@@ -43,7 +44,10 @@
  */
 @property (nonatomic, assign) BOOL useCustomDomain;
 
-
+/**
+ 域名访问模式
+ */
+@property (nonatomic, assign) OBSDomainMode defaultDomainMode;
 
 
 /**

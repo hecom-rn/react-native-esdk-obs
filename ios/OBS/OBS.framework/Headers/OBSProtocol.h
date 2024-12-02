@@ -17,7 +17,21 @@
 #import "OBSBaseModel.h"
 
 
+
+
 @interface OBSProtocol : NSObject
+
+@property(nonatomic,strong)NSLock *nslock0;
+@property(nonatomic,strong)NSLock *nslock1;
+@property(nonatomic,strong)NSLock *nslock2;
+@property(nonatomic,strong)NSLock *nslock3;
+@property(nonatomic,strong)NSLock *nslock4;
+@property(nonatomic,strong)NSLock *nslock5;
+@property(nonatomic,strong)NSLock *nslock6;
+@property(nonatomic,strong)NSLock *nslock7;
+@property(nonatomic,strong)NSLock *nslock8;
+@property(nonatomic,strong)NSLock *nslock9;
+
 // 单例
 +(OBSProtocol *)sharedOBSProtocol;
 

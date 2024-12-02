@@ -1,20 +1,16 @@
-// Copyright 2019 Huawei Technologies Co.,Ltd.
-// Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-// this file except in compliance with the License.  You may obtain a copy of the
-// License at
 //
-// http://www.apache.org/licenses/LICENSE-2.0
+//  OBSBaseConstDefinition.h
+//  OBS
 //
-// Unless required by applicable law or agreed to in writing, software distributed
-// under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-// CONDITIONS OF ANY KIND, either express or implied.  See the License for the
-// specific language governing permissions and limitations under the License.
+//  Created by MaxZhang on 10/10/2017.
+//  Copyright © 2017 obs. All rights reserved.
+//
 
 #ifndef OBSBaseDefinition_h
 #define OBSBaseDefinition_h
 
 
-static NSString *const  OBSSDKVersion                           =@"3.1.3.1";
+static NSString *const  OBSSDKVersion                           =@"3.24.4";
 
 static NSUInteger const  maxConcurrentRequestCountDefault       =3;
 
@@ -92,6 +88,58 @@ static NSString *const OBSXMLDictionaryNodeOrderKey             =@"__order";
 /**
  *  OBS鉴权版本枚举
  */
+
+typedef NS_ENUM(NSInteger, OBSContentType) {
+    /**
+     *  默认类型
+     */
+    OBSContentTypeNULL0,
+    /**
+     *  mp4
+     */
+    OBSContentTypeMP4,
+    /**
+     *  二进制流
+     */
+    OBSContentTypeBinary,
+    /**
+     *  JPEG
+     */
+    OBSContentTypeJPEG,
+    /**
+     *  PNG
+     */
+    OBSContentTypePNG,
+    /**
+     *  HTML
+     */
+    OBSContentTypeHTML,
+    /**
+     *  GIF
+     */
+    OBSContentTypeGIF,
+    /**
+     *  PDF
+     */
+    OBSContentTypePDF,
+    /**
+     *  MP3
+     */
+    OBSContentTypeMP3,
+    /**
+     *  WAV
+     */
+    OBSContentTypeWAV,
+    /**
+     *  MOV
+     */
+    OBSContentTypeMOV,
+    /**
+     *  m3u8
+     */
+    OBSContentTypeM3U8,
+};
+
 typedef NS_ENUM(NSInteger, OBSAuthVersion) {
     /**
      *  默认鉴权

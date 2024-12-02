@@ -72,7 +72,8 @@
 
 @interface OBSBaseConfiguration : NSObject
 @property (nonatomic, strong, readonly, nonnull) NSURL *url;
-
+@property (nonatomic, strong) NSString *lastUploadPath;
+@property (nonatomic, strong) NSData *uploadAllData;
 @property (nonatomic, assign) BOOL trustUnsafeCert;
 @property (nonatomic, assign) uint32_t maxConcurrentCommandRequestCount;
 @property (nonatomic, assign) uint32_t maxConcurrentUploadRequestCount;

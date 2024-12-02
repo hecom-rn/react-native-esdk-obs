@@ -24,7 +24,8 @@
 
     // canonical headedrs key
 static NSString *const  OBSCanonicalPrefix                      =@"x-amz-";
-static NSString *const  OBSCanonicalMetaPrefix                  =@"x-amz-meta-";
+static NSString *const  OBSCanonicalMetaPrefix                  =@"x-obs-meta-";
+static NSString *const  OBSV2MetaPrefix                         =@"x-amz-meta-";
 static NSString *const  OBSCanonicalDateKey                     =@"x-amz-date";
 static NSString *const  OBSCanonicalContentSha256Key            =@"x-amz-content-sha256";
 static NSString *const  OBSCanonicalRequestIDKey                =@"x-amz-request-id";
@@ -370,6 +371,24 @@ typedef NS_ENUM(NSInteger, OBSRestoreTier){
      *   OBSRestoreTierBulk
      */
     OBSRestoreTierBulk,
+};
+
+/**
+ *   OBSDomainMode
+ *
+ *   域名访问方式
+ *
+ */
+typedef NS_ENUM(NSInteger, OBSDomainMode){
+    /**
+     *   默认域名访问方式
+     */
+    OBSDomainModeNULL0,
+    /**
+     *   自定义域名访问
+     */
+    OBSDomainModeCustom,
+    
 };
 
 #define OBSPolicyActionAbortMultipartUpload              @"s3:AbortMultipartUpload"

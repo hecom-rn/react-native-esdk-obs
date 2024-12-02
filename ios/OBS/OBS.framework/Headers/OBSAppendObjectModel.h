@@ -163,6 +163,11 @@
  上传对象时的回调
  */
 @property (nonatomic, copy, nonnull) OBSNetworkingUploadProgressBlock uploadProgressBlock;
+
+/**
+ 自定义MIME类型
+ */
+@property (nonatomic, strong, nonnull) NSString *customContentType;
 @end
 
 

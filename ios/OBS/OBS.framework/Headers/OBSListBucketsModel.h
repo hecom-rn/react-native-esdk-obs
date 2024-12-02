@@ -31,6 +31,11 @@
 
 // 桶列表类
 @interface OBSListBucketsRequest: OBSBaseRequest<OBSListBucketsProtocol>
+/**
+ 是否返回桶的区域信息
+ */
+@property (nonatomic, assign) NSString *isQueryLocation;
+
 @end
 
     //networking request

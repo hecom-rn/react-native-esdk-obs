@@ -1,14 +1,10 @@
-// Copyright 2019 Huawei Technologies Co.,Ltd.
-// Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-// this file except in compliance with the License.  You may obtain a copy of the
-// License at
 //
-// http://www.apache.org/licenses/LICENSE-2.0
+//  OBSServiceCategory.h
+//  OBS
 //
-// Unless required by applicable law or agreed to in writing, software distributed
-// under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-// CONDITIONS OF ANY KIND, either express or implied.  See the License for the
-// specific language governing permissions and limitations under the License.
+//  Created by MaxZhang on 14/11/2017.
+//  Copyright © 2017 obs. All rights reserved.
+//
 
 #ifndef OBSServiceCategory_h
 #define OBSServiceCategory_h
@@ -20,11 +16,13 @@
 //+(NSValueTransformer*)obs_etagTransformer;
 +(NSValueTransformer*)obs_copyEncryptionTransformer;
 +(NSValueTransformer*)obs_metaDataDictTransformer;
++(NSValueTransformer*)v2_metaDataDictTransformer;
 +(NSValueTransformer*)obs_arrayStringCommaTransformer;
 
 
 +(NSValueTransformer*)obs_OBSTrueFalseDictTransformer;
 +(NSValueTransformer*)obs_OBSStorageClassDictTransformer;
++(NSValueTransformer*)obs_OBSContentTypeTransformer;
 +(NSValueTransformer*)obs_OBSACLDictTransformer;
 +(NSValueTransformer*)obs_OBSBucketLifecycleStatusDictTransformer;
 +(NSValueTransformer*)obs_OBSVersioningStatusDictTransformer;

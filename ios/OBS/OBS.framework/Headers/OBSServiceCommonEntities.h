@@ -717,6 +717,11 @@
 @property (nonatomic, strong, nonnull) NSString *hostName;
 
 /**
+ 请求种类
+ */
+@property (nonatomic, strong, nonnull) NSString *protocol;
+
+/**
  初始化配置所有请求重定向
 
  @param hostName 重定向站点名

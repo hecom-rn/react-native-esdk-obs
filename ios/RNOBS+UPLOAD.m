@@ -6,6 +6,15 @@
 @implementation RNOBS (UPLOAD)
 
 /**
+ 获取文件的 mime type
+ */
+- (NSString *)getMimeType:(NSString *)fileExtension{
+  NSString *UTI = (__bridge_transfer NSString *)UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)fileExtension, NULL);
+  NSString *mimeType = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)UTI, kUTTagClassMIMEType);
+  return mimeType;
+}
+
+/**
  * Asynchronous uploading
  */
 RCT_REMAP_METHOD(upload,
@@ -28,6 +37,8 @@ RCT_REMAP_METHOD(upload,
                                                                  @"totalSize": [NSString stringWithFormat:@"%lld",totalBytesExpectedToSend]}];
             }
         };
+        NSString *mimeType = [self getMimeType:[filepath pathExtension]];
+        put.customContentType = mimeType;
         [self.client putObject:put completionHandler:^(OBSPutObjectResponse *response, NSError *error) {
             if (!error) {
                 NSLog(@"upload object success!");
