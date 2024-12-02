@@ -1,6 +1,27 @@
 import { DeviceEventEmitter, NativeEventEmitter, NativeModules, Platform } from "react-native";
+import { RTNObs } from './harmony';
 
-const {RNOBS} = NativeModules;
+const RNOBS = Platform.select({
+    ios: NativeModules.RNOBS,
+    android: NativeModules.RNOBS,
+    harmony: {
+        enableDevMode() {
+            RTNObs.enableDevMode();
+        },
+    
+        initWithPlainTextAccessKey(accessKey, secretKey, endPoint, configuration = conf) {
+            RTNObs.initWithPlainTextAccessKey(accessKey, secretKey, endPoint, configuration);
+        },
+    
+        initWithSecurityToken(securityToken, accessKey, secretKey, endPoint, configuration = conf) {
+            RTNObs.initWithSecurityToken(securityToken, accessKey, secretKey, endPoint, configuration);
+        },
+    
+        upload(bucketName, objectKey, filepath, options) {
+            return RTNObs.upload(bucketName, objectKey, filepath, options);
+        },
+    }
+})
 
 let subscription;
 
