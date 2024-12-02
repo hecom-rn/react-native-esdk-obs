@@ -6,6 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "harmony": {
+    "alias": "rtn-esdk-obs",
+    "codegenConfig": [
+      {
+        "version": 2,
+        "specPaths": [
+          "./harmony/src/specs/v2"
+        ]
+      }
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hecom-rn/react-native-esdk-obs.git"
