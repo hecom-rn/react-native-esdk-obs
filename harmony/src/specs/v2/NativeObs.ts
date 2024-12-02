@@ -12,5 +12,5 @@ export interface Spec extends TurboModule {
 }
 
 export default TurboModuleRegistry.get<Spec>(
-  'RTNObs',
+  'RNOBS',
 ) as Spec | null;
