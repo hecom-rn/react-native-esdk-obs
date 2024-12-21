@@ -50,7 +50,11 @@ public class ObsUploadManager {
             String[] proj = {MediaStore.Images.Media.DATA};
             cursor = context.getCurrentActivity().getContentResolver().query(selectedVideoUri, proj, null, null, null);
             if (cursor == null) {
-                sourceFile = selectedVideoUri.getPath();
+                if ("file".equals(selectedVideoUri.getScheme())) {
+                    sourceFile = sourceFile.substring("file://".length());
+                } else {
+                    sourceFile = selectedVideoUri.getPath();
+                }
             } else {
                 int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
                 cursor.moveToFirst();
