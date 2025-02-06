@@ -45,6 +45,7 @@ RCT_EXPORT_METHOD(initWithSecurityToken:(NSString *)securityToken
     //    _clientConfiguration.maxRetryCount = [RCTConvert int:configuration[@"maxRetryCount"]]; // default 3
     //    _clientConfiguration.timeoutIntervalForRequest = [RCTConvert double:configuration[@"timeoutIntervalForRequest"]]; //default 30
     //    _clientConfiguration.timeoutIntervalForResource = [RCTConvert double:configuration[@"timeoutIntervalForResource"]]; //default 24 * 60 * 60
+    self.clientConfiguration.useCustomDomain = configuration[@"cname"];
 }
 
 @end

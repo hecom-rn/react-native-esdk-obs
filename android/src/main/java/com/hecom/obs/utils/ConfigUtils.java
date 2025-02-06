@@ -15,6 +15,7 @@ public class ConfigUtils {
        conf.setConnectionTimeout(configuration.getInt("timeoutIntervalForRequest") * 1000);
        conf.setSocketTimeout(configuration.getInt("timeoutIntervalForRequest") * 1000);
        conf.setMaxErrorRetry(configuration.getInt("maxRetryCount"));
+       conf.setCname(configuration.getBoolean("cname"));
        return conf;
    }
 }
