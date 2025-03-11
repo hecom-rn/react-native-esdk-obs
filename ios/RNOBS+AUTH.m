@@ -45,7 +45,14 @@ RCT_EXPORT_METHOD(initWithSecurityToken:(NSString *)securityToken
     //    _clientConfiguration.maxRetryCount = [RCTConvert int:configuration[@"maxRetryCount"]]; // default 3
     //    _clientConfiguration.timeoutIntervalForRequest = [RCTConvert double:configuration[@"timeoutIntervalForRequest"]]; //default 30
     //    _clientConfiguration.timeoutIntervalForResource = [RCTConvert double:configuration[@"timeoutIntervalForResource"]]; //default 24 * 60 * 60
-    self.clientConfiguration.defaultDomainMode = configuration[@"cname"] ? OBSDomainModeCustom : OBSDomainModeNULL0;
+    OBSDomainMode defaultDomainMode = OBSDomainModeNULL0;
+    if (configuration[@"cname"] && [configuration[@"cname"] isKindOfClass:[NSNumber class]]) {
+        bool boolValue = [(NSNumber *)configuration[@"cname"] boolValue];
+        if (boolValue) {
+            defaultDomainMode = OBSDomainModeCustom;
+        }
+    }
+    self.clientConfiguration.defaultDomainMode = defaultDomainMode;
 }
 
 @end
