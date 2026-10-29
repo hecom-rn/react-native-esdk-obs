@@ -111,6 +111,13 @@ public class ObsUploadManager {
                     promise.resolve("UploadSuccess");
                 } catch (ObsException e) {
                     PromiseExceptionManager.resolvePromiseException(e, promise);
+                } catch (Exception e) {
+                    // 华为云 OBS SDK（ObsService.transPutObjectRequest）对本地文件不存在抛
+                    // IllegalArgumentException("File doesnot exist")，类型非 ObsException，
+                    // 原先未被捕获会沿自建线程抛出到 UncaughtExceptionHandler 导致 App 崩溃
+                    // （Sentry 30997），统一转为 promise reject 交给 JS 层处理
+                    e.printStackTrace();
+                    promise.reject(e);
                 }
                 Log.d("AliyunOSS", "OSS uploadObjectAsync ok!");
             }
